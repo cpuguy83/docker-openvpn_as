@@ -11,13 +11,13 @@ if [ ! -f /tmp/pass_set ]; then
     pass=$(openssl rand -base64 32)
     echo "${pass}" | passwd --stdin openvpn
   fi
+
+  echo "To login to OpenVPN, use the following credentials:"
+  echo "username: openvpn"
+  echo "password: ${pass}"
 fi
 
 touch /tmp/pass_set
-
-echo "To login to OpenVPN, use the following credentials:"
-echo "username: openvpn"
-echo "password: ${pass}"
 
 if [ -f /vpn.pid ]; then
   echo "Not shutdown properly, removing stale pid"
