@@ -15,9 +15,9 @@ if [ ! -f /tmp/pass_set ]; then
   echo "To login to OpenVPN, use the following credentials:"
   echo "username: openvpn"
   echo "password: ${pass}"
+  touch /tmp/pass_set
 fi
 
-touch /tmp/pass_set
 
 if [ -f /vpn.pid ]; then
   echo "Not shutdown properly, removing stale pid"
